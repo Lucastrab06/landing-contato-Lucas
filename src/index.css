@@ -1,111 +1,185 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --azul: #82bbe9;
+  --bege: #f5e7c6;
+  --bege-card: #fffdf7;
+  --bege-etiqueta: #f3e7bd;
+  --preto: #111;
+  --marrom: #8A5A44;
+  --cinza: #666;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+html { scroll-behavior: smooth; }
+body { background-color: var(--azul); font-family: 'Trebuchet MS', sans-serif; }
+section { scroll-margin-top: 100px; }
+.topo { background-color: var(--azul); }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+button { border-radius: 20px; font-size: 18px; }
+button:hover, .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transition: 0.3s;
 }
 
-body {
-  margin: 0;
-}
+/* HERO */
+.hero { padding: 80px 0; background-color: var(--azul); }
+.hero h1 { color: var(--preto); letter-spacing: 8px; text-shadow: 4px 4px 0 rgba(255,255,255,0.7); }
+.hero .slogan { color: #333; }
+.hero p { max-width: 650px; }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* CARD VHS */
+.vhs-card {
+  width: 310px; height: 430px; margin: auto; padding: 25px; border-radius: 22px;
+  background: linear-gradient(145deg, #242424, #080808);
+  box-shadow: 15px 20px 0 rgba(0,0,0,0.25), 0 25px 50px rgba(0,0,0,0.35);
+  transform: rotate(5deg); transition: 0.4s;
 }
+.vhs-card:hover { transform: rotate(0deg) translateY(-10px); }
+.vhs-label {
+  background: var(--bege-etiqueta); height: 145px; border-radius: 8px; color: var(--preto);
+  padding: 25px 10px; display: flex; flex-direction: column; justify-content: center;
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,0.08);
+}
+.vhs-label span { font-size: 30px; font-weight: bold; letter-spacing: 3px; }
+.vhs-label small { margin-top: 10px; font-size: 12px; letter-spacing: 2px; }
+.vhs-reels { display: flex; justify-content: space-around; align-items: center; margin-top: 45px; }
+.reel {
+  width: 75px; height: 75px; border-radius: 50%; border: 5px solid #555;
+  background: radial-gradient(circle, #111 0 10px, #aaa 11px 17px, #111 18px 28px, #777 29px 34px, #111 35px);
+  box-shadow: inset 0 0 0 4px #222, 0 5px 10px rgba(0,0,0,0.5);
+}
+.vhs-line { height: 7px; background: #555; margin-top: 35px; border-radius: 10px; }
+.vhs-bottom { color: #aaa; display: flex; justify-content: space-between; margin-top: 30px; font-size: 12px; letter-spacing: 2px; }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* CATEGORIAS */
+.categorias { background-color: var(--bege); }
+.categoria-card {
+  background-color: var(--bege-card); border: 3px solid var(--preto); border-radius: 20px;
+  padding: 30px 20px; text-align: center; box-shadow: 7px 7px 0 var(--preto); transition: 0.3s;
+  display: flex; flex-direction: column; align-items: center;
 }
+.categoria-card:hover { transform: translateY(-8px); box-shadow: 7px 15px 0 var(--preto); }
+.categoria-card .icone { font-size: 55px; margin-bottom: 15px; }
+.categoria-card h3 { font-size: 27px; color: var(--marrom); font-weight: bold; }
+.categoria-card p { color: var(--cinza); min-height: 70px; }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+/* NOSSA HISTÓRIA */
+.historia { background-color: var(--bege); border-top: 5px solid var(--preto); }
+.historia-intro { max-width: 650px; margin: auto; font-size: 18px; }
+.historia-abertura {
+  background-color: var(--bege-card); border: 3px solid var(--preto); border-radius: 25px;
+  padding: 45px; box-shadow: 10px 10px 0 var(--preto);
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+.historia-fita {
+  background: linear-gradient(145deg, #292929, #080808); width: 280px; height: 200px; margin: auto;
+  border-radius: 18px; padding: 20px; box-shadow: 8px 10px 0 #555, 0 15px 30px rgba(0,0,0,0.3);
+  transform: rotate(-4deg); transition: 0.4s;
 }
-p {
-  margin: 0;
+.historia-fita:hover { transform: rotate(0deg) scale(1.04); }
+.fita-topo { display: flex; justify-content: space-between; color: #aaa; font-size: 12px; letter-spacing: 2px; }
+.fita-corpo { display: flex; justify-content: space-around; align-items: center; margin-top: 25px; }
+.fita-rolo {
+  width: 55px; height: 55px; border-radius: 50%; border: 4px solid #555;
+  background: radial-gradient(circle, #111 0 7px, #999 8px 13px, #222 14px 20px, #777 21px 26px, #111 27px);
 }
+.fita-nome {
+  margin-top: 22px; background-color: var(--bege-etiqueta); color: var(--preto); text-align: center;
+  padding: 8px; border-radius: 5px; font-weight: bold; letter-spacing: 3px;
+}
+.historia-numero, .capitulo { font-size: 12px; font-weight: bold; letter-spacing: 3px; color: var(--marrom); }
+.palavra-rebobina {
+  background-color: var(--preto); color: white; display: inline-block; padding: 12px 25px;
+  border-radius: 8px; font-weight: bold; letter-spacing: 3px; margin: 10px 0 15px; transform: rotate(-2deg);
+}
+.historia-card {
+  background-color: var(--bege-card); border: 3px solid var(--preto); border-radius: 20px;
+  padding: 30px 22px; text-align: center; box-shadow: 7px 7px 0 var(--preto); transition: 0.3s;
+  display: flex; flex-direction: column;
+}
+.historia-card:hover { transform: translateY(-10px) rotate(-1deg); box-shadow: 7px 15px 0 var(--preto); }
+.historia-icone { font-size: 50px; margin-bottom: 15px; }
+.historia-card h3 { font-size: 28px; font-weight: bold; color: var(--marrom); margin: 8px 0 15px; }
+.historia-card p { color: var(--cinza); line-height: 1.6; flex-grow: 1; }
+.responsabilidade {
+  background-color: var(--bege-etiqueta); border: 2px dashed var(--marrom); border-radius: 10px;
+  padding: 12px; margin-top: 20px; font-size: 14px; line-height: 1.7; color: #444;
+}
+.frase-card { background-color: var(--preto); color: white; border-radius: 10px; padding: 12px; margin-top: 15px; font-size: 14px; font-style: italic; }
+.historia-final { padding: 40px; border-top: 2px dashed var(--preto); }
+.historia-final p { max-width: 700px; margin-left: auto; margin-right: auto; }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* ESCOLHA POR MIM */
+.escolha { background-color: var(--azul); border-top: 5px solid var(--preto); border-bottom: 5px solid var(--preto); }
+.resultado-escolha {
+  max-width: 600px; margin-left: auto; margin-right: auto; background-color: var(--bege-card);
+  border: 3px solid var(--preto); border-radius: 25px; padding: 35px; box-shadow: 8px 8px 0 var(--preto);
 }
+.icone-escolha { font-size: 65px; margin-bottom: 15px; }
+.resultado-escolha h3 { font-size: 30px; font-weight: bold; color: var(--marrom); }
+.resultado-escolha p { color: var(--cinza); font-size: 17px; }
+.botao-categoria { margin-top: 15px; }
+.barra-rebobinando { width: 80%; height: 18px; background-color: #ddd; border: 3px solid var(--preto); border-radius: 20px; margin: 25px auto 10px; overflow: hidden; }
+.progresso-rebobinando { width: 0%; height: 100%; background-color: var(--preto); border-radius: 20px; animation: rebobinar 2.2s linear forwards; }
+@keyframes rebobinar { from { width: 0%; } to { width: 100%; } }
+.rebobinando { animation: girarFita 0.7s linear infinite; }
+@keyframes girarFita { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.texto-rebobinando { display: block; margin-top: 10px; font-weight: bold; letter-spacing: 3px; color: #555; }
+.resultado-icone { animation: aparecerResultado 0.5s ease; }
+@keyframes aparecerResultado {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+button:disabled { opacity: 0.7; cursor: wait; }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* DESTAQUE (TV RETRÔ) */
+.tv-retro {
+  background: #222; width: 330px; max-width: 100%; padding: 25px; margin: auto; border-radius: 35px;
+  border: 8px solid var(--preto); box-shadow: 10px 12px 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.5);
+}
+.tv-screen {
+  background: radial-gradient(circle, #333 0%, #111 70%); height: 220px; border: 10px solid #555;
+  border-radius: 20px; color: white; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; gap: 10px; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+.tv-screen span { font-size: 45px; }
+.tv-screen strong { font-size: 25px; letter-spacing: 3px; }
+.tv-screen small { color: #aaa; }
+.tv-controls { color: #aaa; margin-top: 15px; letter-spacing: 15px; text-align: center; }
+
+/* CONTATO (seu formulário) */
+.contato { background-color: var(--bege); border-top: 5px solid var(--preto); }
+.contato-card {
+  max-width: 650px; margin: auto; background-color: var(--bege-card); border: 3px solid var(--preto);
+  border-radius: 25px; padding: 35px; box-shadow: 8px 8px 0 var(--preto);
+}
+.contato-card h2 { letter-spacing: 3px; }
+.contato .subtitulo { font-size: 12px; letter-spacing: 4px; color: var(--marrom); font-weight: bold; }
+.contato .campo { margin-top: 15px; }
+.contato label { font-weight: bold; font-size: 14px; letter-spacing: 1px; margin-bottom: 4px; }
+.contato textarea { resize: none; height: 150px; }
+
+/* RESPONSIVO */
+@media (max-width: 1000px) {
+  .hero h1 { font-size: 70px; }
+  .vhs-card { width: 280px; height: 390px; }
+}
+@media (max-width: 700px) {
+  .hero { padding: 60px 15px; }
+  .hero h1 { font-size: 48px; letter-spacing: 4px; }
+  .hero .slogan { font-size: 28px; }
+  .hero p { font-size: 17px; }
+  .vhs-card { width: 250px; height: 350px; }
+  .vhs-label { height: 115px; }
+  .vhs-label span { font-size: 23px; }
+  .vhs-reels { margin-top: 30px; }
+  .reel { width: 60px; height: 60px; }
+  .historia-abertura { padding: 25px; }
+  .historia-fita { width: 240px; height: 175px; }
+  .fita-rolo { width: 45px; height: 45px; }
+  .historia-final { padding: 25px 10px; }
+  .tv-retro { width: 280px; }
+  .tv-screen { height: 180px; }
+  .resultado-escolha { padding: 25px 15px; }
+  .resultado-escolha h3 { font-size: 24px; }
+  .contato-card { padding: 25px 15px; }
 }
