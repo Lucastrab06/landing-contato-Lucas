@@ -1,6 +1,5 @@
 const links = [
   { href: '#inicio', texto: 'Início' },
-  { href: '#categorias', texto: 'Categorias' },
   { href: '#historia', texto: 'Nossa história' },
   { href: '#contato', texto: 'Contato' },
 ]
