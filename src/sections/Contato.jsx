@@ -18,7 +18,7 @@ const regras = {
     if (data > hoje) return 'A data não pode ser no futuro.'
     if (data.getFullYear() < 1900) return 'Digite uma data válida.'
     return ''
-    },
+  },
   telefone: (v) => {
     const digitos = v.replace(/\D/g, '')
     return digitos.length === 10 || digitos.length === 11 ? '' : 'Digite um telefone com DDD.'
@@ -93,9 +93,15 @@ export default function Contato() {
           <p className="subtitulo text-center">REBOBINA</p>
 
           <form onSubmit={aoEnviar} noValidate>
+            <p className="small text-muted mb-0">
+              <span className="obrigatorio">*</span> Campos obrigatórios
+            </p>
+
             {campos.map((campo) => (
               <div className="campo" key={campo.id}>
-                <label htmlFor={campo.id}>{campo.rotulo}</label>
+                <label htmlFor={campo.id}>
+                  {campo.rotulo} <span className="obrigatorio" aria-hidden="true">*</span>
+                </label>
                 <input
                   type={campo.tipo}
                   max={campo.tipo === 'date' ? new Date().toISOString().split('T')[0] : undefined}
@@ -105,13 +111,16 @@ export default function Contato() {
                   placeholder={campo.placeholder}
                   value={valores[campo.id]}
                   onChange={aoDigitar}
+                  required
                 />
                 <div className="invalid-feedback">{erros[campo.id]}</div>
               </div>
             ))}
 
             <div className="campo">
-              <label htmlFor="mensagem">DEIXE SUA MENSAGEM</label>
+              <label htmlFor="mensagem">
+                DEIXE SUA MENSAGEM <span className="obrigatorio" aria-hidden="true">*</span>
+              </label>
               <textarea
                 className={`form-control ${erros.mensagem ? 'is-invalid' : ''}`}
                 id="mensagem"
@@ -119,6 +128,7 @@ export default function Contato() {
                 placeholder="Digite sua mensagem..."
                 value={valores.mensagem}
                 onChange={aoDigitar}
+                required
               ></textarea>
               <div className="invalid-feedback">{erros.mensagem}</div>
             </div>
