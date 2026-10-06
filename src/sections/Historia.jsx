@@ -79,7 +79,7 @@ export default function Historia() {
             Filmes, séries, músicas, jogos, cadastro e a opinião de quem visita. Tudo reunido
             em uma única loja.
           </p>
-          <a href="#categorias" className="btn btn-dark btn-lg rounded-pill px-5 mt-3">
+          <a href="#contato" className="btn btn-dark btn-lg rounded-pill px-5 mt-3">
             🎬 Começar a viagem
           </a>
         </div>

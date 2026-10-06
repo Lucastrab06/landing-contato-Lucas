@@ -14,10 +14,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-4">
-              <a href="#categorias" className="btn btn-dark btn-lg rounded-pill px-5">
-                🎬 Explorar catálogo
-              </a>
-              <a href="#contato" className="btn btn-outline-dark btn-lg rounded-pill px-5 ms-2 mt-2 mt-sm-0">
+              <a href="#contato" className="btn btn-dark btn-lg rounded-pill px-5">
                 💬 Deixe seu feedback
               </a>
             </div>
